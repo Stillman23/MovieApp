@@ -7,37 +7,50 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-current_showtimes = [ 
-    Showtime.create(showtime: "11:00am"), 
-    Showtime.create(showtime: "1:15pm"),
-    Showtime.create(showtime: "3:15pm"),
-    Showtime.create(showtime: "5:15pm"),
-    Showtime.create(showtime: "7:15pm"),
-    Showtime.create(showtime: "9:15pm"),
-    Showtime.create(showtime: "11:15pm")
-]  
+times = [
+    '11:00am',
+    '12:00pm',
+    '1:15pm',
+    '3:00pm',
+    '5:15pm',
+    '8:00pm',
+    '10:00pm'
+  ]
 
-Theatre.create(name: '101', seating: 45, showtimes: current_showtimes)
-Theatre.create(name: '102', seating: 45, showtimes: current_showtimes)
-Theatre.create(name: '103', seating: 45, showtimes: current_showtimes)
-Theatre.create(name: '104', seating: 45, showtimes: current_showtimes)
-Theatre.create(name: '105', seating: 45, showtimes: current_showtimes)
-Theatre.create(name: '106', seating: 45, showtimes: current_showtimes)
-Theatre.create(name: '107', seating: 45, showtimes: current_showtimes)
-Theatre.create(name: '108', seating: 45, showtimes: current_showtimes)
-Theatre.create(name: '109', seating: 45, showtimes: current_showtimes)
-Theatre.create(name: '110', seating: 45, showtimes: current_showtimes)
+theatres = [
+    {name: '101', seating: 45},
+    {name: '102', seating: 45},
+    {name: '103', seating: 45},
+    {name: '104', seating: 45},
+    {name: '105', seating: 45},
+    {name: '106', seating: 45},
+    {name: '107', seating: 45},
+    {name: '108', seating: 45},
+    {name: '109', seating: 45},
+    {name: '110', seating: 45}
+]
 
-Movie.create(title: 'Black Panther', rating: 'PG', length: 105, showtimes: current_showtimes )
-Movie.create(title: 'Wrinkle In Time', rating: 'PG', length: 95, showtimes: current_showtimes)
-Movie.create(title: 'Blockers', rating: 'R', length: 112, showtimes: current_showtimes)
-Movie.create(title: 'Pacific Rim', rating: 'PG-13', length: 115, showtimes: current_showtimes)
-Movie.create(title: 'Acrimony', rating: 'R', length: 105, showtimes: current_showtimes)
-Movie.create(title: 'Quiet Place', rating: 'PG-13', length: 90, showtimes: current_showtimes)
-Movie.create(title: 'Truth or Dare', rating: 'Un-Rated', length: 105, showtimes: current_showtimes)
-Movie.create(title: 'Sherlock Gnomes', rating: 'PG', length: 80, showtimes: current_showtimes)
-Movie.create(title: 'Peter Rabbit', rating: 'PG', length: 92, showtimes: current_showtimes)
-Movie.create(title: 'The Miracle Season', rating: 'PG', length: 104, showtimes: current_showtimes)
+movies = [
+    {title: 'Black Panther', rating: 'PG', length: 105},
+    {title: 'Sherlock Gnomes', rating: 'G', length: 80},
+    {title: 'Blockers', rating: 'R', length: 112},
+    {title: 'Pacific Rim', rating: 'PG-13', length: 115},
+    {title: 'Wrinkle In Time', rating: 'PG', length: 95},
+    {title: 'Acrimony', rating: 'R', length: 105},
+    {title: 'Quiet Place', rating: 'PG-13', length: 90},
+    {title: 'Truth or Dare', rating: 'Un-Rated', length: 105},
+    {title: 'Peter Rabbit', rating: 'PG', length: 92},
+    {title: 'The Miracle Season', rating: 'PG', length: 104}
+  ]
+Ticket.create(price: 10.00, showtime_id: times[0], order_id: Order.create(customer_name:'Scott Tillman', customer_email: 'Scotttillman23@gmail.com'))
+  
+# times.each do |t|
+#     theatres.each do |theatre|
+#       movies.each do |movie|
+#         Theatre.create(theatre)
+#         Movie.create(movie)
+#         Showtime.create(showtime: t, theatre: theatre, movie: movie)
 
-Ticket.create(price: 10.00, showtime_id: current_showtimes[0], order_id: Order.create(customer_name:'Scott Tillman', customer_email: 'Scotttillman23@gmail.com'))
+#     end
+# end
 
