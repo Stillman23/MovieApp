@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-times = [
+showtimes = [
     '11:00am',
     '12:00pm',
     '1:15pm',
@@ -41,16 +41,16 @@ movies = [
     {title: 'Truth or Dare', rating: 'Un-Rated', length: 105},
     {title: 'Peter Rabbit', rating: 'PG', length: 92},
     {title: 'The Miracle Season', rating: 'PG', length: 104}
-  ]
-Ticket.create(price: 10.00, showtime_id: times[0], order_id: Order.create(customer_name:'Scott Tillman', customer_email: 'Scotttillman23@gmail.com'))
-  
-# times.each do |t|
-#     theatres.each do |theatre|
-#       movies.each do |movie|
-#         Theatre.create(theatre)
-#         Movie.create(movie)
-#         Showtime.create(showtime: t, theatre: theatre, movie: movie)
-
-#     end
-# end
-
+  ] 
+showtimes.each do |t|
+    theatres.each do |theatre|
+        Theatre.create(theatre)
+        movies.each do |movie|
+        Movie.create(movie)
+        showtime = Showtime.create(showtime: t, theatre_id: theatre, movie_id: movie)
+        Ticket.create(price: 10.00, showtime_id: showtime, order_id: Order.create(customer_name:'Scott Tillman', customer_email: 'Scotttillman23@gmail.com'))
+        
+      end
+    end
+end
+Showtime.create(showtime: '11:00', '1:15pm' '3:00pm', '5:00pm', '7:20pm', '9:50pm',  theatre_id: 1, movie_id: 1)

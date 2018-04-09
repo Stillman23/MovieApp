@@ -7,7 +7,7 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.7'
+gem 'rails', '~> 5.0.6'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
@@ -34,6 +34,16 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'sprockets', '~> 3.5', '>= 3.5.2'
+gem 'sticky-rails'
+gem 'rails_bootstrap_navbar'
+
+gem 'parallaxslider-rails'
+gem 'bootstrap', '~> 4.0.0'
+gem 'paperclip'
+gem 'activeadmin', github: 'activeadmin'
+gem 'devise'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
