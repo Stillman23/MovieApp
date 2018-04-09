@@ -1,5 +1,6 @@
 class StaticController < ApplicationController
     def BuyMovietickets
+      @movies = Movie.all
     end
   
     def comingsoon
