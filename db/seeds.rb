@@ -53,4 +53,4 @@ showtimes.each do |t|
       end
     end
 end
-Showtime.create(showtime: '11:00', '1:15pm' '3:00pm', '5:00pm', '7:20pm', '9:50pm',  theatre_id: 1, movie_id: 1)
+Showtime.create(showtime: '11:00am', theatre_id: 1, movie_id: 1)
