@@ -12,31 +12,28 @@
 
     <%= csrf_meta_tags %>
   </head>
-
- 
-
 			<!-- Navigation -->
 		  <header>
       <div class="container">
     <!-- start top -->
     <div id="topnav" class="navbar navbar-fixed-top default">
       <div class="navbar-inner">
-        <div class="container">
+        
           <div class="logo">
-            <a href="index.html"><img src="assets/img/logo.png" alt="" /></a>
+            <%= image_tag "scottlogo.png", :size => "300x150"%>
           </div>
           <div class="navigation">
             <nav>
               <ul class="nav pull-right">
                 <li class="current"><a <%= link_to "Home", "/" %></a></li>
-                <li><a <%= link_to "Buy Movie Tickets", "/BuyMovietickets" %></a></li>
+                <li><a <%= link_to "Now Playing", "/BuyMovietickets" %></a></li>
                 <li><a <%= link_to "Coming Soon", "/comingsoon" %></a></li>
                 <li><a <%= link_to "Contact", "/contact" %></a></li>
               </ul>
             </nav>
           </div>
           <!--/.nav-collapse -->
-        </div>
+        
       </div>
     </div>
     <!-- end top -->
@@ -49,18 +46,17 @@
 						<div class="col-sm-3">
 							<h6>Get in touch</h6>
 							<ul>
+              <li><a href="#">Schedule an Event</a></li>
 								<li><a href="#">FAQs</a></li>
 								<li><a href="#">Give us feedback</a></li>
-								<li><a href="#">Contact us</a></li>
 							</ul>
 						</div>
 						<div class="col-sm-3">
-							<h6>About Movie star</h6>
+							<h6>Scott Cinenma</h6>
 							<ul>
-								<li><a href="#">About us</a></li>
-								<li><a href="#">Find us</a></li>
-								<li><a href="#">Schedule</a></li>
-								<li><a href="#">News</a></li>
+								<li><a href="#">Now Playing</a></li>
+								<li><a href="#">Coming Soon</a></li>
+								<li><a href="#">Contact Us</a></li>
 							</ul>
 						</div>
 						<div class="col-sm-3">
@@ -68,7 +64,6 @@
 							<ul>
 								<li><a href="#">Terms &amp; Conditions</a></li>
 								<li><a href="#">Privacy policy</a></li>
-								<li><a href="#">Cookie policy</a></li>
 							</ul>
 						</div>
 						<div class="col-sm-3">
@@ -81,7 +76,7 @@
 						</div>
 					</div>
 					<div class="copyright">
-						<p>2017 &copy; Movie Star  /  <a href="http://www.klevermedia.co.uk">Web design by Klever media</a></p>
+						<p>2018 &copy; Scott Cinenma  /  <a href="Scott-tillman.com">Designed by Scott Tillman</a></p>
 					</div>
 				</div>
 			</footer>

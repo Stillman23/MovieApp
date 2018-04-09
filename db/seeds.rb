@@ -31,8 +31,8 @@ theatres = [
 ]
 
 movies = [
-    {title: 'Black Panther', rating: 'PG', length: 105},
-    {title: 'Sherlock Gnomes', rating: 'G', length: 80},
+    {title: 'Black Panther', rating: 'PG', length: 105, image},
+    {title: 'Sherlock Gnomes', rating: 'G', length: 80, image},
     {title: 'Blockers', rating: 'R', length: 112},
     {title: 'Pacific Rim', rating: 'PG-13', length: 115},
     {title: 'Wrinkle In Time', rating: 'PG', length: 95},
