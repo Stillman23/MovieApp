@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20180408185553) do
   end
 
   create_table "showtimes", force: :cascade do |t|
-    t.string   "showtime"
+    t.datetime "showtime"
     t.integer  "movie_id"
     t.integer  "theatre_id"
     t.datetime "created_at", null: false
@@ -40,9 +40,9 @@ ActiveRecord::Schema.define(version: 20180408185553) do
 
   create_table "theatres", force: :cascade do |t|
     t.string   "name"
-    t.integer  "seating"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "max_seating"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "tickets", force: :cascade do |t|
