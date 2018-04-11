@@ -1,8 +1,28 @@
-<ul id="well">
-   <li>Movie: </li>
-  <li>Showtime: </li>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+  <!--<li>Movie: <%= @show.movie.title %></li>
+  <li>Showtime: <%= @showtime.starting_time.strftime("%A, %B %d, %Y at %I:%Mpm") %></li>
 </ul>
+<%= form_for [:show, @ticket], :html => {:class=>"form-horizontal center", :role=>"form"} do |f| %> -->
+
 <%= form_for :movie, {:class=>"form-horizontal center", :role=>"form"} do |f| %>
+<div class="form-group">
+    <%= f.label :movie, class:"control-label col-sm-2" %>
+    <%= f.select :movie, [['Black Panther','movie'],['Wrinkle In Time','movie'],['Blockers','movie'],['Pacific Rim'], ['Sherlock Gnomes'], ['Acrimony'], ['Quiet Place'], ['Truth or Dares'],['Peter Rabbit'], ['The Miracle Season']]%><br />
+  </div>
+  <div class="form-group">
+    <%= f.label :showtimes, class:"control-label col-sm-2" %>
+    <%= f.select :showtime, [['11:00am'],[10.00], [10.00], [10.00], [10.00], [10.00], [10.00]  ] %><br />
+  </div>
+  <div class="form-group">
+    <%= f.label :price, class:"control-label col-sm-2" %>
+    <%= f.select :price, [10.00] %><br />
+  </div>
   <div class="form-group">
     <%= f.label :customer_name, class:"control-label col-sm-2" %>
     <%= f.text_field :customer_name %><br />
@@ -24,5 +44,5 @@
   <%= f.date_select :credit_card_expiration_date, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :use_month_numbers => true %><br />
   </div>
   
-  <%= f.submit "Purchased" %>
+  <%= f.submit "Click to Purchase Ticket" %>
 <% end %>

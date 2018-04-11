@@ -2,11 +2,9 @@ class Ticket < ApplicationRecord
     belongs_to :showtime
     belongs_to :order
 
-#  validates :showtime_id, :first_name, :last_name, :email_address, presence: true
-#   validates :email_address, confirmation: true
-#   validates_format_of :email_address, :with => /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
-#   validates :credit_card_number, length: { minimum: 13 }
-#   validates :credit_card_number, length: { maximum: 19 }
-#   validate  :check_age
-#   validate  :check_card_is_valid?
+    validates :show_id, :customer_name, :customer_email, presence: true
+    validates :customer_email, confirmation: true
+    validates_format_of :customer_email, :with => /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
+    validates :credit_card_number, length: { minimum: 10 }
+    validates :credit_card_number, length: { maximum: 15 }
 end
