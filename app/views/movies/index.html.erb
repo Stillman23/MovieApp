@@ -69,7 +69,7 @@
 							<div class="col-md-10 col-sm-9">
 									<h3 class="no-underline"><%= movie.title%></h3>
 									<p><%=movie.description%></p>
-									<p><a href="single-movie.html" class="arrow-button">Purchase Ticket</a></p>
+									<p>  <%= link_to "Purchase A Ticket", new_show_ticket_path(movie.id) %></p>
 									<div class="row">
 										<div class="col-md-8 col-sm-9">
 												<hr class="space-10" />

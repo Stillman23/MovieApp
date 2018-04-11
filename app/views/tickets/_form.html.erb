@@ -1,0 +1,28 @@
+<ul id="well">
+  <li>Movie: <%= @movies.movie.title %></li>
+  <li>Showtime: <%= @showtime.starting_time.strftime("%A, %B %d, %Y at %I:%Mpm") %></li>
+</ul>
+<%= form_for [:movie, @ticket], :html => {:class=>"form-horizontal center", :role=>"form"} do |f| %>
+  <div class="form-group">
+    <%= f.label :customer_name, class:"control-label col-sm-2" %>
+    <%= f.text_field :customer_name %><br />
+  </div>
+  <div class="form-group">
+    <%= f.label :customer_email, class:"control-label col-sm-2" %>
+    <%= f.text_field :customer_email %><br />
+  </div>
+  <div class="form-group">
+    <%= f.label :customer_email_confirmation, class:"control-label col-sm-2" %>
+    <%= f.text_field :customer_email_confirmation %><br />
+  </div>
+  <div class="form-group">
+    <%= f.label :credit_card_number, class:"control-label col-sm-2" %>
+    <%= f.text_field :credit_card_number %><br />
+  </div>
+  <div class="form-group">
+  <%= f.label :credit_card_expiration_date, 'Expiration date' , class:"control-label col-sm-2" %><br />
+  <%= f.date_select :credit_card_expiration_date, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :use_month_numbers => true %><br />
+  </div>
+  
+  <%= f.submit "Movie Ticket Purchased" %>
+<% end %>
