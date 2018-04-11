@@ -9,15 +9,15 @@
 
 
 
-# showtimes = [
-#     DateTime.parse('3rd Feb 2001 11:00:06+03:30'),
-#     DateTime.parse('3rd Feb 2001 12:00:06+03:30'),
-#     DateTime.parse('3rd Feb 2001 13:15:06+03:30'),
-#     DateTime.parse('3rd Feb 2001 15:00:06+03:30'),
-#     DateTime.parse('3rd Feb 2001 17:15:06+03:30'),
-#     DateTime.parse('3rd Feb 2001 20:00:06+03:30'),
-#     DateTime.parse('3rd Feb 2001 22:00:06+03:30')
-#   ]
+showtimes = [
+    DateTime.parse('3rd Feb 2001 11:00:06+03:30'),
+    DateTime.parse('3rd Feb 2001 12:00:06+03:30'),
+    DateTime.parse('3rd Feb 2001 13:15:06+03:30'),
+    DateTime.parse('3rd Feb 2001 15:00:06+03:30'),
+    DateTime.parse('3rd Feb 2001 17:15:06+03:30'),
+    DateTime.parse('3rd Feb 2001 20:00:06+03:30'),
+    DateTime.parse('3rd Feb 2001 22:00:06+03:30')
+  ]
 
 theatres = [
     {name: '101', max_seating: 45},
@@ -44,6 +44,7 @@ movies = [
     {title: 'Peter Rabbit', rating: 'PG', length: 92},
     {title: 'The Miracle Season', rating: 'PG', length: 104}
   ] 
+
 # showtimes.each do |t|
 theatres.each do |theatre|
     Theatre.create(theatre)
@@ -54,5 +55,26 @@ theatres.each do |theatre|
         Ticket.create(price: 10.00, showtime_id: showtime, order_id: order.id) 
     end
 end
+
+
+# theatre1 = Theatre.create(name: 1, seats: 20)
+# theatre2 = Theatre.create(name: 2, seats: 20)
+# theatre3 = Theatre.create(name: 3, seats: 20)
+
+# movie1 = Movie.create(title: This Title, length: 90)
+# movie2 = Movie.create(title: Those Title, length: 90)
+# movie3 = Movie.create(title: That Title, length: 90)
+
+# Showtime.create(showtime: 11, theatre_id: theatre1, movie_id: movie1)
+# Showtime.create(showtime: 1, theatre_id: theatre1, movie_id: movie1)
+# Showtime.create(showtime: 3, theatre_id: theatre1, movie_id: movie1)
+
+# Showtime.create(showtime: 11, theatre_id: theatre2, movie_id: movie2)
+# Showtime.create(showtime: 1, theatre_id: theatre2, movie_id: movie2)
+# Showtime.create(showtime: 3, theatre_id: theatre2, movie_id: movie2)
+
+# Showtime.create(showtime: 11, theatre_id: theatre3, movie_id: movie3)
+# Showtime.create(showtime: 1, theatre_id: theatre3, movie_id: movie3)
+# Showtime.create(showtime: 3, theatre_id: theatre3, movie_id: movie3)
 
 

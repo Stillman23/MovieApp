@@ -5,7 +5,7 @@ class TicketsController < ApplicationController
   end
 
   def create
-    @ticket = Ticket.new(ticket_params)
+    @ticket = Ticket.new
   
     if @tickets.save
       @tickets.movie.increment!(:max_seating)
@@ -16,11 +16,6 @@ class TicketsController < ApplicationController
       @errors = @ticket.errors.full_messages
       reset_cc_and_age(@ticket)
       render 'tickets/new', locals: { ticket: @ticket }
-    end
   end
-
-  private
-
-  def ticket_params
-    params.require(:ticket).permit(:customer_name:, :customer_email, :customer_email_confirmation, :credit_card, :credit_card_expiration_date) 
+end
 end
