@@ -9,15 +9,15 @@
 
 
 
-showtimes = [
-    DateTime.parse('3rd Feb 2001 11:00:06+03:30'),
-    DateTime.parse('3rd Feb 2001 12:00:06+03:30'),
-    DateTime.parse('3rd Feb 2001 13:15:06+03:30'),
-    DateTime.parse('3rd Feb 2001 15:00:06+03:30'),
-    DateTime.parse('3rd Feb 2001 17:15:06+03:30'),
-    DateTime.parse('3rd Feb 2001 20:00:06+03:30'),
-    DateTime.parse('3rd Feb 2001 22:00:06+03:30')
-  ]
+# showtimes = [
+#     DateTime.parse('3rd Feb 2001 11:00:06+03:30'),
+#     DateTime.parse('3rd Feb 2001 12:00:06+03:30'),
+#     DateTime.parse('3rd Feb 2001 13:15:06+03:30'),
+#     DateTime.parse('3rd Feb 2001 15:00:06+03:30'),
+#     DateTime.parse('3rd Feb 2001 17:15:06+03:30'),
+#     DateTime.parse('3rd Feb 2001 20:00:06+03:30'),
+#     DateTime.parse('3rd Feb 2001 22:00:06+03:30')
+#   ]
 
 theatres = [
     {name: '101', max_seating: 45},
@@ -44,15 +44,15 @@ movies = [
     {title: 'Peter Rabbit', rating: 'PG', length: 92},
     {title: 'The Miracle Season', rating: 'PG', length: 104}
   ] 
-showtimes.each do |t|
-    theatres.each do |theatre|
-        Theatre.create(theatre)
-        movies.each do |movie|
+# showtimes.each do |t|
+theatres.each do |theatre|
+    Theatre.create(theatre)
+    movies.each do |movie|
         Movie.create(movie)
-        showtime = Showtime.create(showtime: t, theatre_id: theatre, movie_id: movie)
-        Ticket.create(price: 10.00, showtime_id: showtime, order_id: Order.create(customer_name:'Scott Tillman', customer_email: 'Scotttillman23@gmail.com'))
-
-        end
+        showtime = Showtime.create(showtime: Time.now, theatre_id: theatre, movie_id: movie)
+        order = Order.create(customer_name:'Scott Tillman', customer_email: 'Scotttillman23@gmail.com')
+        Ticket.create(price: 10.00, showtime_id: showtime, order_id: order.id) 
     end
 end
-Showtime.create(showtime: showtimes , theatre_id: 1, movie_id: 1)
+
+
