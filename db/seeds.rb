@@ -10,26 +10,26 @@
 
 
 showtimes = [
-    DateTime.parse('3rd Feb 2001 11:00:06+03:30'),
-    DateTime.parse('3rd Feb 2001 12:00:06+03:30'),
-    DateTime.parse('3rd Feb 2001 13:15:06+03:30'),
-    DateTime.parse('3rd Feb 2001 15:00:06+03:30'),
-    DateTime.parse('3rd Feb 2001 17:15:06+03:30'),
-    DateTime.parse('3rd Feb 2001 20:00:06+03:30'),
-    DateTime.parse('3rd Feb 2001 22:00:06+03:30')
+    {showtime: DateTime.parse('3rd Feb 2001 11:00:06+03:30')},
+    {showtime: DateTime.parse('3rd Feb 2001 12:00:06+03:30')},
+    {showtime: DateTime.parse('3rd Feb 2001 13:15:06+03:30')},
+    {showtime: DateTime.parse('3rd Feb 2001 15:00:06+03:30')},
+    {showtime: DateTime.parse('3rd Feb 2001 17:15:06+03:30')},
+    {showtime: DateTime.parse('3rd Feb 2001 20:00:06+03:30')},
+    {showtime: DateTime.parse('3rd Feb 2001 22:00:06+03:30')}
   ]
 
 theatres = [
-    {name: '101', max_seating: 45},
-    {name: '102', max_seating: 45},
-    {name: '103', max_seating: 45},
-    {name: '104', max_seating: 45},
-    {name: '105', max_seating: 45},
-    {name: '106', max_seating: 45},
-    {name: '107', max_seating: 45},
-    {name: '108', max_seating: 45},
-    {name: '109', max_seating: 45},
-    {name: '110', max_seating: 45}
+    {name: '101', max_seating: 20},
+    {name: '102', max_seating: 20},
+    {name: '103', max_seating: 20},
+    {name: '104', max_seating: 20},
+    {name: '105', max_seating: 20},
+    {name: '106', max_seating: 20},
+    {name: '107', max_seating: 20},
+    {name: '108', max_seating: 20},
+    {name: '109', max_seating: 20},
+    {name: '110', max_seating: 20}
 ]
 
 movies = [
@@ -45,16 +45,27 @@ movies = [
     {title: 'The Miracle Season', rating: 'PG', length: 104, movie_image: 'Miracle.jpg'}
   ] 
 
-# showtimes.each do |t|
-theatres.each do |theatre|
-    Theatre.create(theatre)
+  theatres.each {|theatre| Theatre.create(theatre)} 
+  t = Theatre.all
+  t.each do |theatre|
     movies.each do |movie|
-        Movie.create(movie)
-        showtime = Showtime.create(showtime: Time.now, theatre_id: theatre, movie_id: movie)
-        order = Order.create(customer_name:'Scott Tillman', customer_email: 'Scotttillman23@gmail.com')
-        Ticket.create(price: 10.00, showtime_id: showtime, order_id: order.id) 
+        movie['theatre_id'] = theatre.id
+        m = Movie.create(movie)
+        showtimes.each do |showtime|
+            showtime['movie_id'] = m.id 
+            s = Showtime.create(showtime) 
+            rand(1..20).times {Ticket.create(price: 10.00, showtime_id: s.id)}
+        end
     end
 end
+
+
+
+    
+
+
+
+
 
 
 # theatre1 = Theatre.create(name: 1, seats: 20)

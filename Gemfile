@@ -38,6 +38,8 @@ gem 'sprockets', '~> 3.5', '>= 3.5.2'
 gem 'sticky-rails'
 gem 'rails_bootstrap_navbar'
 
+gem 'faker'
+
 gem 'parallaxslider-rails'
 gem 'bootstrap', '~> 4.0.0'
 gem 'paperclip'
