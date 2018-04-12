@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
     def index
-        @movies = Movie.all
+        @theatres = Theatre.first
     end
 end

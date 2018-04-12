@@ -58,7 +58,7 @@
 								<li><a href="#sun">Sun</a></li>
 							</ul>
 			<div id="mon">
-      <% @movies.each do |movie| %>
+      <% @theatres.movies.each do |movie| %>
 				<div class="row movie-tabs">
 					<div class="col-md-2 col-sm-3">
 							<a href="single-movie.html">
@@ -68,7 +68,7 @@
       <%# Movie info %>
 							<div class="col-md-10 col-sm-9">
 									<h3 class="no-underline"><%= movie.title%></h3>
-									<p><%=movie.description%></p>
+									<p><%= movie.description%></p>
 								
 									<div class="row">
 										<div class="col-md-8 col-sm-9">
