@@ -33,16 +33,16 @@ theatres = [
 ]
 
 movies = [
-    {title: 'Black Panther', rating: 'PG', length: 105 },
-    {title: 'Sherlock Gnomes', rating: 'G', length: 80},
-    {title: 'Blockers', rating: 'R', length: 112 },
-    {title: 'Pacific Rim', rating: 'PG-13', length: 115 },
-    {title: 'Wrinkle In Time', rating: 'PG', length: 95 },
-    {title: 'Acrimony', rating: 'R', length: 105 },
-    {title: 'Quiet Place', rating: 'PG-13', length: 90 },
-    {title: 'Truth or Dare', rating: 'Un-Rated', length: 105 },
-    {title: 'Peter Rabbit', rating: 'PG', length: 92},
-    {title: 'The Miracle Season', rating: 'PG', length: 104}
+    {title: 'Black Panther', rating: 'PG', length: 105, movie_image: 'BlackPanther.jpg' },
+    {title: 'Sherlock Gnomes', rating: 'G', length: 80, movie_image:'Sherlock.jpg' },
+    {title: 'Blockers', rating: 'R', length: 112, movie_image:'Blockers.jpg' },
+    {title: 'Pacific Rim', rating: 'PG-13', length: 115, movie_image:'WrinkleinTime.jpg' },
+    {title: 'Wrinkle In Time', rating: 'PG', length: 95, movie_image: 'Pacific.jpg' },
+    {title: 'Acrimony', rating: 'R', length: 105, movie_image:'Acrimony.jpg' },
+    {title: 'Quiet Place', rating: 'PG-13', length: 90, movie_image:'quietplace.jpg' },
+    {title: 'Truth or Dare', rating: 'Un-Rated', length: 105, movie_image:'Truth.jpeg' },
+    {title: 'Peter Rabbit', rating: 'PG', length: 92,  movie_image: 'Peter.jpg'},
+    {title: 'The Miracle Season', rating: 'PG', length: 104, movie_image: 'Miracle.jpg'}
   ] 
 
 # showtimes.each do |t|

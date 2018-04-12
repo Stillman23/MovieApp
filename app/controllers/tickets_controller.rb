@@ -1,7 +1,7 @@
 class TicketsController < ApplicationController
   def new
     @ticket = Ticket.new
-    # @show = Show.find(params[:show_id])
+   
   end
 
   def create
