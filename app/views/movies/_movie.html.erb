@@ -1,0 +1,35 @@
+				<div class="row movie-tabs">
+					<div class="col-md-2 col-sm-3">
+							<a href="single-movie.html">
+							<%= image_tag @movie.movie_image %>
+							</a>
+						</div>
+      <%# Movie info %>
+							<div class="col-md-10 col-sm-9">
+									<h3 class="no-underline"><%= @movie.title%></h3>
+									<p><%= @movie.description%></p>
+								
+									<div class="row">
+										<div class="col-md-8 col-sm-9">
+												<hr class="space-10" />
+												<span class="viewing-times">
+												  <i class="material-icons">access_time</i>
+												  Viewing times
+											  </span>
+                      <% @movie.showtimes.each do |st| %>
+                        <%= st.showtime.strftime("%I:%M%p") %>
+                      <% end%>
+										</div>
+									    <div class="col-md-4 col-sm-3 running-time">
+												<hr class="space-10" />
+												<%=@movie.length%><span>Mins</span>
+                        
+										  </div>
+                      
+									</div>
+                  
+								</div>
+                
+						 </div>
+           
+					

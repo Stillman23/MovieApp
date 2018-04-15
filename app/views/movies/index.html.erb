@@ -80,7 +80,7 @@
                       <% movie.showtimes.each do |st| %>
                         <%= st.showtime.strftime("%I:%M%p") %>
                       <% end%>
-<p><a href="/new">Purchase A Ticket</a></p>
+<p><%= link_to "Purchase A Ticket", controller: "orders", action: "new"%></p>  
 										</div>
 									    <div class="col-md-4 col-sm-3 running-time">
 												<hr class="space-10" />
