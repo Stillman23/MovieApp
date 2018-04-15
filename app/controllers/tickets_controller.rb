@@ -6,6 +6,9 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = Ticket.new
+    
+    binding.pry
+    
   
     if @tickets.save
       @tickets.movie.increment!(:max_seating)
