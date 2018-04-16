@@ -37,6 +37,10 @@
       </div>
     </div>
     <!-- end top -->
+
+    
+
+  
   
      <%= yield %>
                               
@@ -80,6 +84,13 @@
 					</div>
 				</div>
 			</footer>
+       <script>
+     $(document).ready(function() {
+         setTimeout(function() {
+             $('#flash').remove();
+         }, 5000);
+     })
+    </script>
   </body>
 </html>
 

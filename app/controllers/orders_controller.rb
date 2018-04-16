@@ -1,21 +1,29 @@
 class OrdersController < ApplicationController
   def new
+    # binding.pry
+    @movie = Movie.find_by(id: params[:movie])   
     @order = Order.new
-    # @movie = Movie.find(params[:movie_id])
-   
+    @showtimes = @movie.showtimes
+    @order.tickets.build
   end
 
   def create
-    @order = Order.new
-    
+    @order = Order.new(order_params)
+    # binding.pry
+    if @order.save
+      flash[:success] = 'Ticket has been Purchased! Confirmation Email has been sent.'
+      redirect_to root_path
+    else 
+      flash[:error] = 'Information Error! Please try again.'
+      render 'new'
+    end
   end
+
 
   def order_params
     params.require(:order).
-      permit(:name, tickets_attributes: [:id, :price, :showtime_id, :order_id])
+      permit(:customer_name, :customer_email, tickets_attributes: [:id, :price, :order_id, :showtime])
   end
-    
-  
     # if @tickets.save
     #   @tickets.movie.increment!(:max_seating)
     #   TicketMailer.ticket_receipt(@ticket).deliver_now

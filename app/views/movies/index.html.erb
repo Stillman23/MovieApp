@@ -5,6 +5,15 @@
 	<div class="container">
 	<section class="block-body">
   <h1>NOW PLAYING</h1>
+   <div id="flash">
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>">
+        <% if key != "timedout" %>
+            <%= value %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 		<div class="row">
 			<div class="col-md-4">
 				<div class="testimonial">
@@ -80,7 +89,7 @@
                       <% movie.showtimes.each do |st| %>
                         <%= st.showtime.strftime("%I:%M%p") %>
                       <% end%>
-<p><%= link_to "Purchase A Ticket", controller: "orders", action: "new"%></p>  
+<p><%= link_to "Purchase A Ticket", controller: "orders", action: "new", params: {movie: movie}%></p>  
 										</div>
 									    <div class="col-md-4 col-sm-3 running-time">
 												<hr class="space-10" />

@@ -5,28 +5,43 @@
 <br>
 <br>
 <br>
-<%= form_for :movie do |f| %>
-  
+
+ <div id="flash">
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>">
+        <% if key != "timedout" %>
+            <%= value %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<%= @showtimes.first.showtime %>
+
+<%= form_for @order do |f| %>
+ <%#= @movie.title%> 
   <%= f.label :customer_name, class:"control-label col-sm-2" %>
   <%= f.text_field :customer_name %>
 
   <%= f.label :customer_email, class:"control-label col-sm-2" %>
-  <%= f.text_field :customer_email %>
+  <%= f.text_field :customer_email %> <br>
 
-  <%= f.label :customer_email_confirmation, class:"control-label col-sm-2" %>
-  <%= f.text_field :customer_email_confirmation %>
+  <%#= f.label :customer_email_confirmation, class:"control-label col-sm-2" %>
+  <%#= f.text_field :customer_email_confirmation %>
 
-  <%= f.label :credit_card_number, class:"control-label col-sm-2" %>
-  <%= f.text_field :credit_card_number  %>
+  <%#= f.label :credit_card_number, class:"control-label col-sm-2" %>
+  <%#= f.text_field :credit_card_number  %>
 
-  <%= f.label :credit_card_expiration_date, 'Expiration date' , class:"control-label col-sm-2" %>
-  <%= f.date_select :credit_card_expiration_date, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :use_month_numbers => true %>
+  <%#= f.label :credit_card_expiration_date, 'Expiration date' , class:"control-label col-sm-2" %>
+  <%#= f.date_select :credit_card_expiration_date, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :use_month_numbers => true %>
 
   <%= f.fields_for :tickets do |tickets_form| %>
-    <%= tickets_form.label :movie %>
-    <%= tickets_form.text_field :kind %>
+    <%= tickets_form.label :price %>
+    <%= tickets_form.text_field :price %>
+    <%= tickets_form.text_field :showtime %>
   <% end %>
+   <%= f.submit "Click to Purchase Ticket" %>
 <% end %>
+
 
 <%# <%= form_for :order, {:class=>"form-horizontal center", :role=>"form"} do |f| 
 <div class="form-group">

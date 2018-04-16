@@ -4,7 +4,8 @@ Rails.application.routes.draw do
     resources :tickets
   end 
   root 'movies#index'
-  get 'new' => 'orders#new'
+  # get 'new' => 'orders#new'
+  resources :orders
 
   controller :static do
     get :BuyMovietickets
