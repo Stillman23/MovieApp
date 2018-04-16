@@ -1,118 +1,111 @@
 <br>
 <br>
 <br>
+<!--Top Portion showing 3 main movies-->
 <div class="content-block" id="portfolio">
 	<div class="container">
-	<section class="block-body">
-  <h1>NOW PLAYING</h1>
-   <div id="flash">
-    <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %>">
-        <% if key != "timedout" %>
-            <%= value %>
+		<section class="block-body">
+  	<h1>NOW PLAYING</h1>
+
+<!--Flash validation notice-->
+		<div id="flash">
+			<% flash.each do |key, value| %>
+  		<div class="alert alert-<%= key %>">
+      	<% if key != "timedout" %>
+        <%= value %>
         <% end %>
       </div>
-    <% end %>
-  </div>
-		<div class="row">
-			<div class="col-md-4">
-				<div class="testimonial">
-				<%= image_tag "BlackPanther.jpg"%>
-        <br>
-				<p>After the death of his father, T'Challa returns home to the African nation of Wakanda to take his 
-                  rightful place as king. When a powerful enemy suddenly reappears, T'Challa's mettle as king -- and as 
-                  Black Panther -- gets tested when he's drawn into a conflict that puts the fate of Wakanda and the 
-                  entire world at risk. </p>
-				<strong>Black Panther</strong><br/>
+     <% end %>
+   </div>
+<!--END-->
+<!--Continuation of top portion hilighing 3 movies-->
+   <div class="content-block">
+    <div class="container">
+    	<section class="block-body">
+      <div class="row">
+				<!--Movie 1-->
+        <div class="col-sm-4">
+          <%= image_tag "BlackPanther.jpg"%>
+          <p>After the death of his father, T'Challa returns home to the African nation of Wakanda to take his 
+          rightful place as king. When a powerful enemy suddenly reappears, T'Challa's mettle as king -- and as 
+          Black Panther -- gets tested when he's drawn into a conflict that puts the fate of Wakanda and the 
+          entire world at risk. </p>
+				  <strong>Black Panther</strong><br/>
         </div>
-	    </div>
-					<div class="col-md-4">
-						<div class="testimonial">
-						<%= image_tag "WrinkleinTime.jpg"%>
-						<p>Meg Murry and her little brother, Charles Wallace, have been without their scientist father, Mr. Murry, 
-                  for five years, ever since he discovered a new planet and used the concept known as a tesseract to travel 
-                  there. Joined by Meg's classmate Calvin O'Keefe and guided by the three mysterious astral travelers witches. 
-            </p>
-						<strong>Wrinkle In Time</strong><br/>
-			     </div>
+				<!--Movie 2-->
+        <div class="col-sm-4">
+          <%= image_tag "WrinkleinTime.jpg"%>
+        	<p>Meg Murry and her little brother, Charles Wallace, have been without their scientist father, Mr. Murry, 
+          for five years, ever since he discovered a new planet and used the concept known as a tesseract to travel 
+          there. Joined by Meg's classmate Calvin O'Keefe and guided by the three mysterious astral travelers witches. 
+          </p>
+					<strong>Wrinkle In Time</strong><br/>
+        </div>
+				<!--Movie 3-->
+       <div class="col-sm-4">
+         <%= image_tag "Blockers.jpg"%>
+         <p>Julie, Kayla and Sam are three high school seniors who make a pact to lose their virginity on prom night. 
+         Lisa, Mitchell and Hunter are three overprotective parents who flip out when they find out about their 
+         daughters' plans. They soon join forces for a wild and chaotic quest to stop the girls from sealing the deal
+         -- no matter what the cost.</p>
+				 <strong>Blockers</strong><br/>
+       </div>
+      </div>
+      </section>
+    </div>
+   </div>
+	</div>
+</div>
+<!-- Main Movie Listings -->
+<div class="container section" id="afterHeader">
+	<div class="row">
+	 <div class="col-sm-12">
+			<div class="tabs movies">
+				<ul>
+				 <li><a href="#mon">Mon</a></li>
+				 <li><a href="#tue">Tue</a></li>
+				 <li><a href="#wed">Wed</a></li>
+				 <li><a href="#thu">Thu</a></li>
+				 <li><a href="#fri">Fri</a></li>
+				 <li><a href="#sat">Sat</a></li>
+				 <li><a href="#sun">Sun</a></li>
+			 </ul>
+		   <div id="mon">
+        <% @movies.each do |movie| %>
+				<div class="row movie-tabs">
+					<div class="col-md-2 col-sm-3">
+					<%= image_tag movie.movie_image %>
 					</div>
-							<div class="col-md-4">
-								<div class="testimonial">
-									<%= image_tag "Blockers.jpg"%>
-									<p>Julie, Kayla and Sam are three high school seniors who make a pact to lose their virginity on prom night. 
-                  Lisa, Mitchell and Hunter are three overprotective parents who flip out when they find out about their 
-                  daughters' plans. They soon join forces for a wild and chaotic quest to stop the girls from sealing the deal
-                   -- no matter what the cost.</p>
-									<strong>Blockers</strong><br/>
+						<div class="col-md-10 col-sm-9">
+							<h3 class="no-underline"><%= movie.title%></h3>
+							<p><%= movie.description%></p>
+								<div class="row">
+									<div class="col-md-8 col-sm-9">
+										<hr class="space-10" />
+										<span class="viewing-times">
+										<i class="material-icons">access_time</i>
+												  Viewing times
+										</span>
+                    <% movie.showtimes.each do |st| %>
+                    <%= st.showtime.strftime("%I:%M%p") %>
+      <% end%>
+                    <p><%= link_to "Purchase A Ticket", controller: "orders", action: "new", params: {movie: movie}%></p>  
+									</div>
+									  <div class="col-md-4 col-sm-3 running-time">
+											<hr class="space-10" />
+											<%=movie.length%><span>Mins</span>
+										</div>
+									</div>
+								</div>
+						 </div>
+						   <%end %>
+<!-- Advertisment -->
+						<div class="container section small-padding">
+							<div class="row">
+								<div class="col-sm-12 cta">
+									<p>Want to Schedule and Event?</p>
+									<p class="gradient-text">708.539.7937</p>
 								</div>
 							</div>
 						</div>
-					
-					</section>
-				</div>
-			</div>
-			<!-- Movie day and time Section -->
-			<div class="container section" id="afterHeader">
-				<div class="row">
-					<div class="col-sm-12">
-
-						<div class="tabs movies">
-							<ul>
-								<li><a href="#mon">Mon</a></li>
-								<li><a href="#tue">Tue</a></li>
-								<li><a href="#wed">Wed</a></li>
-								<li><a href="#thu">Thu</a></li>
-								<li><a href="#fri">Fri</a></li>
-								<li><a href="#sat">Sat</a></li>
-								<li><a href="#sun">Sun</a></li>
-							</ul>
-			<div id="mon">
-      <% @movies.each do |movie| %>
-				<div class="row movie-tabs">
-					<div class="col-md-2 col-sm-3">
-							<%= image_tag movie.movie_image %>
-							</a>
-						</div>
-      <%# Movie info %>
-							<div class="col-md-10 col-sm-9">
-									<h3 class="no-underline"><%= movie.title%></h3>
-									<p><%= movie.description%></p>
-								
-									<div class="row">
-										<div class="col-md-8 col-sm-9">
-												<hr class="space-10" />
-												<span class="viewing-times">
-												  <i class="material-icons">access_time</i>
-												  Viewing times
-											  </span>
-                      <% movie.showtimes.each do |st| %>
-                        <%= st.showtime.strftime("%I:%M%p") %>
-                      <% end%>
-<p><%= link_to "Purchase A Ticket", controller: "orders", action: "new", params: {movie: movie}%></p>  
-										</div>
-									    <div class="col-md-4 col-sm-3 running-time">
-												<hr class="space-10" />
-												<%=movie.length%><span>Mins</span>
-                        
-										  </div>
-                      
-									</div>
-                  
-								</div>
-                
-						 </div>
-           
-						 <%end %>
-         
-
-          
-                 	<!-- Section - contact-->
-			<div class="container section small-padding">
-				<div class="row">
-					<div class="col-sm-12 cta">
-						<p>Want to Schedule and Event?</p>
-						<p class="gradient-text">708.539.7937</p>
-					</div>
-				</div>
-			</div>
      
