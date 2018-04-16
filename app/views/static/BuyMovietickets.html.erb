@@ -1,7 +1,4 @@
-<br>
-<br>
-<br>
-			<!-- Movie day and time Section -->
+<!-- Movie day and time Section -->
 			<div class="container section" id="afterHeader">
 				<div class="row">
 					<div class="col-sm-12">
@@ -16,35 +13,41 @@
 								<li><a href="#sat">Sat</a></li>
 								<li><a href="#sun">Sun</a></li>
 							</ul>
-							<div id="mon">
-              <% @movies.each do |movie| %>
-								<div class="row movie-tabs">
-									<div class="col-md-2 col-sm-3">
-										<a href="single-movie.html">
-											<%= image_tag "BlackPanther.jpg"%>
-										</a>
-									</div>
-                   <%# Movie info %>
-									<div class="col-md-10 col-sm-9">
-										<h3 class="no-underline"><%= movie.title%></h3>
-										<p><%=movie.description%></p>
-										<p><a href="single-movie.html" class="arrow-button">Purchase Ticket</a></p>
-										<div class="row">
-											<div class="col-md-8 col-sm-9">
+			<div id="mon">
+      <% @movies.each do |movie| %>
+				<div class="row movie-tabs">
+					<div class="col-md-2 col-sm-3">
+							<a href="single-movie.html">
+							<%= image_tag movie.movie_image %>
+							</a>
+						</div>
+      <%# Movie info %>
+							<div class="col-md-10 col-sm-9">
+									<h3 class="no-underline"><%= movie.title%></h3>
+									<p><%= movie.description%></p>
+								
+									<div class="row">
+										<div class="col-md-8 col-sm-9">
 												<hr class="space-10" />
 												<span class="viewing-times">
-													<i class="material-icons">access_time</i>
-													Viewing times
-												</span>
-                        <% movie.showtimes.each do |showtime| %>
-												<span class="time past"><%=showtime.showtime%></span> 
-                        <%end %>
-											</div>
-											<div class="col-md-4 col-sm-3 running-time">
+												  <i class="material-icons">access_time</i>
+												  Viewing times
+											  </span>
+                      <% movie.showtimes.each do |st| %>
+                        <%= st.showtime.strftime("%I:%M%p") %>
+                      <% end%>
+<p><%= link_to "Purchase A Ticket", controller: "orders", action: "new", params: {movie: movie}%></p>  
+										</div>
+									    <div class="col-md-4 col-sm-3 running-time">
 												<hr class="space-10" />
 												<%=movie.length%><span>Mins</span>
-											</div>
-										</div>
+                        
+										  </div>
+                      
 									</div>
+                  
 								</div>
-                 <%end %> 
+                
+						 </div>
+           
+						 <%end %>
