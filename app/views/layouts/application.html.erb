@@ -1,27 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>MovieTicketApp</title>
+ <head>
+  <title>MovieTicketApp</title>
     <%= csrf_meta_tags %>
-
-     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="icon" type="image/png" href="images/favicon.png" />
-
     <%= csrf_meta_tags %>
   </head>
-			<!-- Navigation -->
-		  <header>
-      <div class="container">
+  <!-- Navigation -->
+  <header>
+    <body>
     <!-- start top -->
     <div id="topnav" class="navbar navbar-fixed-top default">
       <div class="navbar-inner">
-        
-          <div class="logo">
-            <%= image_tag "scottlogo.png", :size => "300x150"%>
-          </div>
+        <div class="logo">
+          <%= image_tag "scottlogo.png", :size => "300x150"%>
+        </div>
           <div class="navigation">
             <nav>
               <ul class="nav pull-right">
@@ -33,43 +30,36 @@
             </nav>
           </div>
           <!--/.nav-collapse -->
-        
       </div>
     </div>
     <!-- end top -->
-
-    
-
-  
-  
-     <%= yield %>
-                              
-	<footer>
-				<div class="container">
-					<div class="row">
-						<div class="col-sm-3">
-							<h6>Get in touch</h6>
-							<ul>
-              <li><a href="#">Schedule an Event</a></li>
-								<li><a href="#">FAQs</a></li>
-								<li><a href="#">Give us feedback</a></li>
-							</ul>
-						</div>
-						<div class="col-sm-3">
-							<h6>Scott Cinenma</h6>
-							<ul>
-								<li><a href="#">Now Playing</a></li>
-								<li><a href="#">Coming Soon</a></li>
-								<li><a href="#">Contact Us</a></li>
-							</ul>
-						</div>
-						<div class="col-sm-3">
-							<h6>Legal stuff</h6>
-							<ul>
-								<li><a href="#">Terms &amp; Conditions</a></li>
-								<li><a href="#">Privacy policy</a></li>
-							</ul>
-						</div>
+<%= yield %>
+ <footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-3">
+				<h6>Get in touch</h6>
+					<ul>
+            <li><a href="#">Schedule an Event</a></li>
+						<li><a href="#">FAQs</a></li>
+						<li><a href="#">Give us feedback</a></li>
+					</ul>
+			</div>
+				<div class="col-sm-3">
+					<h6>Scott Cinenma</h6>
+					 <ul>
+						<li><a href="#">Now Playing</a></li>
+						<li><a href="#">Coming Soon</a></li>
+						<li><a href="#">Contact Us</a></li>
+					 </ul>
+				</div>
+				 <div class="col-sm-3">
+				  <h6>Legal stuff</h6>
+						<ul>
+						  <li><a href="#">Terms &amp; Conditions</a></li>
+							<li><a href="#">Privacy policy</a></li>
+						</ul>
+				  </div>
 						<div class="col-sm-3">
 							<h6>Connect with us</h6>
 							<ul>

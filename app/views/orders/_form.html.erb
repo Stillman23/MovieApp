@@ -7,36 +7,38 @@
 <br>
 <!--Flash validation notice-->
 <div id="flash">
-  <% flash.each do |key, value| %>
- <div class="alert alert-<%= key %>">
-  <% if key != "timedout" %>
-    <%= value %>
-  <% end %>
- </div>
- <% end %>
-</div>
-<!--Movie Form-->
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>">
+        <% if key != "timedout" %>
+            <%= value %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+
 <%= form_for @order do |f| %>
  <strong>Movie Selected: <%= @movie.title%> </strong> <br><br>
- <%= f.label :customer_name, class:"control-label col-sm-2" %>
- <%= f.text_field :customer_name %>
+  <%= f.label :customer_name, class:"control-label col-sm-2" %>
+  <%= f.text_field :customer_name %>
 
- <%= f.label :customer_email, class:"control-label col-sm-2" %>
- <%= f.text_field :customer_email %> <br>
+  <%= f.label :customer_email, class:"control-label col-sm-2" %>
+  <%= f.text_field :customer_email %> <br>
 
- <%= f.label :credit_card_number, class:"control-label col-sm-2" %>
- <%= f.text_field :credit_card_number  %>
 
- <%= f.label :credit_card_expiration_date, 'Expiration date' , class:"control-label col-sm-2" %>
- <%= f.date_select :credit_card_expiration_date, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :use_month_numbers => true %>
+  <%= f.label :credit_card_number, class:"control-label col-sm-2" %>
+  <%= f.text_field :credit_card_number  %>
 
- <%= f.fields_for :tickets do |tickets_form| %>
-  <%= tickets_form.label :price %>
-  <%= tickets_form.text_field :price %>
-  <%= tickets_form.label :showtime %>
- <%= tickets_form.select(:showtime, @showtimes) %>
+  <%= f.label :credit_card_expiration_date, 'Expiration date' , class:"control-label col-sm-2" %>
+  <%= f.date_select :credit_card_expiration_date, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :use_month_numbers => true %>
+
+  <%= f.fields_for :tickets do |tickets_form| %>
+    <%= tickets_form.label :price %>
+    <%= tickets_form.text_field :price %>
+    <%= tickets_form.label :showtime %>
+    <%= tickets_form.select(:showtime, @showtimes) %>
   
-<% end %>
- <%= f.submit "Click to Purchase Ticket" %>
+  <% end %>
+   <%= f.submit "Click to Purchase Ticket" %>
 <% end %>
 
