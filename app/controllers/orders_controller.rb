@@ -3,13 +3,12 @@ class OrdersController < ApplicationController
     # binding.pry
     @movie = Movie.find_by(id: params[:movie])   
     @order = Order.new
-    @showtimes = @movie.showtimes
+    @showtimes = @movie.showtimes.collect { |time| time.showtime }
     @order.tickets.build
   end
 
   def create
     @order = Order.new(order_params)
-    # binding.pry
     if @order.save
       flash[:success] = 'Ticket has been Purchased! Confirmation Email has been sent.'
       redirect_to root_path
@@ -22,7 +21,7 @@ class OrdersController < ApplicationController
 
   def order_params
     params.require(:order).
-      permit(:customer_name, :customer_email, tickets_attributes: [:id, :price, :order_id, :showtime])
+      permit(:customer_name, :customer_email, tickets_attributes: [:id, :price, :showtime])
   end
     # if @tickets.save
     #   @tickets.movie.increment!(:max_seating)

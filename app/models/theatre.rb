@@ -3,5 +3,5 @@ class Theatre < ApplicationRecord
     
     
 
-    validates :name, :max_seating, presence: true
+    # validates :name, :max_seating, presence: true
 end

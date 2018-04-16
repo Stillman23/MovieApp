@@ -1,7 +1,5 @@
 class Ticket < ApplicationRecord
-    belongs_to :showtime
-    belongs_to :order
-    accepts_nested_attributes_for :showtime
+    belongs_to :order, optional: true
 
     # validates :showtime, :customer_name, :customer_email, presence: true
     # validates :customer_email, confirmation: true

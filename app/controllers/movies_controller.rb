@@ -1,11 +1,13 @@
 class MoviesController < ApplicationController
     def index
-        @theatres = Theatre.first
+        @movies = []
+        Theatre.all.map { |theatre| @movies.push(theatre.movies) }
+        @movies = @movies.flatten
     end
 
     def show
         @movie = Movie.find(params[:id])
-        
+
         
     end
 end

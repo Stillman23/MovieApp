@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180412021737) do
+ActiveRecord::Schema.define(version: 20180416024133) do
 
   create_table "movies", force: :cascade do |t|
     t.string   "title"
@@ -49,12 +49,11 @@ ActiveRecord::Schema.define(version: 20180412021737) do
 
   create_table "tickets", force: :cascade do |t|
     t.float    "price"
-    t.integer  "showtime_id"
     t.integer  "order_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "showtime"
     t.index ["order_id"], name: "index_tickets_on_order_id"
-    t.index ["showtime_id"], name: "index_tickets_on_showtime_id"
   end
 
 end
