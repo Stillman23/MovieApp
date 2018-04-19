@@ -40,7 +40,7 @@ movies = [
     {title: 'Wrinkle In Time', rating: 'PG', length: 95, movie_image: 'Pacific.jpg' },
     {title: 'Acrimony', rating: 'R', length: 105, movie_image:'Acrimony.jpg' },
     {title: 'Quiet Place', rating: 'PG-13', length: 90, movie_image:'quietplace.jpg' },
-    {title: 'Truth or Dare', rating: 'Un-Rated', length: 105, movie_image:'Truth.jpeg' },
+    {title: 'Truth or Dare', rating: 'Un-Rated', length: 105, movie_image:'Truth.jpg' },
     {title: 'Peter Rabbit', rating: 'PG', length: 92,  movie_image: 'Peter.jpg'},
     {title: 'The Miracle Season', rating: 'PG', length: 104, movie_image: 'Miracle.jpg'}
   ] 
